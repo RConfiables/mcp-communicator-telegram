@@ -6,7 +6,7 @@ steps:
       - '-t'
       - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY_NAME}/${_IMAGE_NAME}:${SHORT_SHA}'
       - '.'
-
+    waitFor: ['-']
   # Paso 2: Subir la imagen Docker al Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
