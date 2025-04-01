@@ -1,6 +1,5 @@
 # MCP Communicator (Telegram)
-
-An MCP server that enables communication with users through Telegram. This server provides tools to interact with users via a Telegram bot, including asking questions, sending notifications, sharing files, and creating project archives.
+Un servidor MCP que permite la comunicación con los usuarios a través de Telegram. Este servidor proporciona herramientas para interactuar con los usuarios mediante un bot de Telegram, incluyendo la posibilidad de hacer preguntas, enviar notificaciones, compartir archivos y crear archivos de proyectos.
 
 ## Installation
 
@@ -23,20 +22,20 @@ npx mcptelegram-chatid
 
 ## Features
 
-- Ask questions to users through Telegram
-- Send notifications to users (no response required)
-- Send files to users via Telegram
-- Create and send project zip files (respecting .gitignore)
-- Receive responses asynchronously (waits indefinitely for response)
-- Support for reply-based message tracking
-- Secure chat ID validation
-- Error handling and logging
+- Hacer preguntas a los usuarios a través de Telegram
+- Enviar notificaciones a los usuarios (sin necesidad de respuesta)
+- Enviar archivos a los usuarios a través de Telegram
+- Crear y enviar archivos zip del proyecto (respetando .gitignore)
+- Recibir respuestas de forma asíncrona (espera indefinida)
+- Soporte para el seguimiento de mensajes basado en respuestas
+- Validación segura del ID del chat
+- Gestión y registro de errores
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- A Telegram bot token (obtained from [@BotFather](https://t.me/botfather))
-- Your Telegram chat ID (can be obtained using the included utility)
+- Node.js (v14 o superior)
+- Un token de bot de Telegram (obtenido de [@BotFather](https://t.me/botfather))
+- Tu ID de chat de Telegram (puedes obtenerlo con la utilidad incluida)
 
 ## Installation
 
@@ -51,29 +50,29 @@ cd mcp-communicator-telegram
 npm install
 ```
 
-3. Create a Telegram bot:
-   - Open Telegram and search for [@BotFather](https://t.me/botfather)
-   - Send `/newbot` and follow the instructions
-   - Save the bot token you receive
+3. Crea un bot en Telegram:
+   - Abre Telegram y busca [@BotFather](https://t.me/botfather)
+   - Envía `/newbot` y sigue las instrucciones
+   - Guarda el token del bot que recibas
 
 4. Get your chat ID:
-   - Copy `.env.example` to `.env`
-   - Add your bot token to the `.env` file:
-     ```
-     TELEGRAM_TOKEN=your_bot_token_here
-     ```
-   - Run the chat ID utility:
-     ```bash
-     npm run build
-     node build/get-chat-id.js
-     ```
-   - Send any message to your bot
-   - Copy the chat ID that appears in the console
-   - Add the chat ID to your `.env` file:
-     ```
-     TELEGRAM_TOKEN=your_bot_token_here
-     CHAT_ID=your_chat_id_here
-     ```
+   - Copia `.env.example` a `.env`
+   - Agrega el token de tu bot al archivo `.env`:
+   ```
+   TELEGRAM_TOKEN=your_bot_token_here
+   ```
+   - Ejecuta la utilidad de ID de chat:
+   ```bash
+   npm run build
+   node build/get-chat-id.js
+   ```
+   - Envía cualquier mensaje a tu bot
+   - Copia el ID de chat que aparece en la consola
+   - Agrega el ID de chat a tu archivo `.env`:
+   ```
+   TELEGRAM_TOKEN=your_bot_token_here
+   CHAT_ID=your_chat_id_here
+   ```
 
 ## Configuration
 
