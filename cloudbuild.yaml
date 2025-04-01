@@ -1,0 +1,19 @@
+steps:
+  # Paso 1: Construir la imagen Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '$REGION-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/$_IMAGE_NAME:${SHORT_SHA}'
+      - '.'
+
+  # Paso 2: Subir la imagen Docker al Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '$REGION-docker.pkg.dev/$PROJECT_ID/$_REPOSITORY_NAME/$_IMAGE_NAME:${SHORT_SHA}'
+
+substitutions:
+  _REGION: 'us-central1'  # Reemplaza con la región de tu Artifact Registry (ejemplo: us-central1)
+  _REPOSITORY_NAME: 'telegram-bot-repo'  # Reemplaza con el nombre de tu repositorio de Artifact Registry
+  _IMAGE_NAME: 'telegram-bot-image'  # Reemplaza con el nombre que quieres darle a tu imagen Docker
