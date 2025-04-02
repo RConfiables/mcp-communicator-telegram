@@ -3,6 +3,7 @@ import TelegramBot = require('node-telegram-bot-api');
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import archiver from 'archiver';
+import * as http from 'http';
 
 dotenv.config();
 
@@ -525,6 +526,20 @@ async function main() {
   
   console.log('MCP Communicator server running...');
   new McpServer(); // Start the MCP server
+
+  // Crea un servidor HTTP básico
+  const httpServer = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('MCP Communicator Telegram Bot is running!');
+  });
+
+  // Obtén el puerto de la variable de entorno PORT (si está definida) o usa el puerto 3000 por defecto
+  const port = process.env.PORT || 3000;
+
+  // Haz que el servidor HTTP escuche en el puerto especificado
+  httpServer.listen(port, () => {
+    console.log(`HTTP server listening on port ${port}`);
+  });
 }
 
 main().catch(error => {
