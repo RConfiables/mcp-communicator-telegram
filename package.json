@@ -24,7 +24,7 @@
   "homepage": "https://github.com/qpd-v/mcp-communicator-telegram#readme",
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js",
+    "start": "node build/get-chat-id.js",  
     "dev": "tsc && node build/index.js",
     "watch": "tsc -w",
     "clean": "rimraf build",
@@ -47,7 +47,8 @@
     "archiver": "^7.0.1",
     "dotenv": "^16.3.1",
     "ignore": "^7.0.3",
-    "node-telegram-bot-api": "^0.64.0"
+    "node-telegram-bot-api": "^0.64.0",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/archiver": "^6.0.3",
@@ -55,19 +56,5 @@
     "@types/node-telegram-bot-api": "^0.64.1",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
-  },
-  {
-  "dependencies": {
-    "express": "^4.18.2",  // ¡Añade esta línea!
-    "archiver": "^7.0.1",
-    "dotenv": "^16.3.1",
-    "ignore": "^7.0.3",
-    "node-telegram-bot-api": "^0.64.0"
-  },
-  "scripts": {
-    "start": "node build/get-chat-id.js",  // Cambia la ruta
-    "build": "tsc",
-    // ... (otros scripts sin cambios)
   }
-}
 }
