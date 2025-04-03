@@ -56,3 +56,19 @@ ENV AIRBNB_VILLAS_THREAD_ID "12"
 
 # Define el comando para ejecutar la aplicación
 CMD ["npm", "start"]
+
+FROM node:18-slim
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# Expone el puerto 8080 (¡obligatorio para Cloud Run!)
+EXPOSE 8080
+
+# Define las variables de entorno (opcional, pero mejor inyectarlas en Cloud Run)
+ENV TELEGRAM_BOT_TOKEN=""
+# ... (resto de variables)
+
+# Inicia la aplicación usando el puerto 8080
+CMD ["npm", "start"]
